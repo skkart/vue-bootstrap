@@ -2,7 +2,8 @@ export default {
   inserted (el, binding) {
     const popoverId = binding.value
 
-    if (popoverId === null || popoverId === '') {
+    if (!popoverId) {
+      console.warn('popover directive requires element selector to work')
       return
     }
 
