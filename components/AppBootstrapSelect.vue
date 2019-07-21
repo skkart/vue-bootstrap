@@ -10,7 +10,7 @@
 <script>
   import {each, isArray, map, isString} from 'lodash'
   export default {
-    name: 'bootstrap-select',
+    name: 'app-bootstrap-select',
     props: {
       value: {
         required: true,
