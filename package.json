@@ -1,0 +1,24 @@
+{
+  "name": "vue-bootstrap",
+  "version": "1.0.0",
+  "description": "Basic integration of the Bootstrap v4 component for Vue.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skkart/vue-bootstrap.git"
+  },
+  "author": "skkart",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/skkart/vue-bootstrap/issues"
+  },
+  "homepage": "https://github.com/skkart/vue-bootstrap#readme",
+  "peerDependencies": {
+    "bootstrap": ">=4.0.0",
+    "jquery": ">=3.2.1",
+    "lodash": ">=4.17.4",
+  }
+}
