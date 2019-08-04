@@ -1,7 +1,6 @@
 export {default as directivesPopOver} from './directive/pop-over'
 export {default as directivesTooltip} from './directive/tooltip'
 export {default as AppModal} from './components/AppModal'
-export {default as AppModalConfirm} from './components/AppModalConfirm'
 export {default as AppBootstrapDatepicker} from './components/AppBootstrapDatepicker'
 export {default as AppBootstrapSelect} from './components/BootstrapMultiSelect'
 

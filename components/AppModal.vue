@@ -19,7 +19,8 @@
           </div>
           <div class="modal-footer">
             <slot name="footer">
-              <button type="button" class="btn small-btn btn-cancel-aryaka" @click="$emit('close')">Close</button>
+              <button type="button" class="btn small-btn btn-cancel" @click="$emit('close')">Close</button>
+              <button v-if="hasConfirm" class="btn small-btn btn-apply" @click="$emit('confirm')">Confirm</button>
             </slot>
           </div>
         </div>
@@ -38,6 +39,11 @@
         type: String,
         required: false,
         default: ''
+      },
+      hasConfirm: {
+        type: Boolean,
+        required: false,
+        default: true
       }
     },
     mounted () {
@@ -60,6 +66,7 @@
       handleKeyDown (e) {
         const KEY_TAB = 9
         const KEY_ESC = 27
+        const KEY_ENTER = 13
 
         switch (e.keyCode) {
           case KEY_TAB:
@@ -75,6 +82,9 @@
             break
           case KEY_ESC:
             this.$emit('cancel')
+            break
+          case KEY_ENTER:
+            this.hasConfirm && this.$emit('confirm')
             break
           default:
             break
