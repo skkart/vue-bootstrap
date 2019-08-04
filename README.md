@@ -97,3 +97,39 @@ Basic integration of the Bootstrap v4 component for Vue.js
   }
 </script>
 ```
+
+#### AppModal
+<template>
+    <app-modal style="max-height: 40%; overflow-y: visible"
+               v-if="showAppBox"
+               :hasConfirm="true"
+               @close="showAppBox = false"
+               @confirm="console.log('App Model Submitted')">
+        <template slot="header">
+            <div>App Header</div>
+        </template>
+        <template slot="body">
+            <div>
+                App Body
+            </div>
+        </template>
+    </app-modal>
+    <button @click="showAppBox = true"> Show App Model </button>
+</template>
+
+
+<script>
+  import AppModal from 'vue-bootstrap'
+
+  export default {
+    name: 'page',
+    components: {
+      AppModal
+    },
+    data () {
+      return {
+        showAppBox: false,
+      }
+    }
+  }
+</script>
