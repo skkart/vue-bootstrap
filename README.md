@@ -99,6 +99,7 @@ Basic integration of the Bootstrap v4 component for Vue.js
 ```
 
 #### AppModal
+```vue
 <template>
     <app-modal style="max-height: 40%; overflow-y: visible"
                v-if="showAppBox"
@@ -133,3 +134,4 @@ Basic integration of the Bootstrap v4 component for Vue.js
     }
   }
 </script>
+```
