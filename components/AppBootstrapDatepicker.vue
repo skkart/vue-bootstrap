@@ -5,7 +5,7 @@
         <input type="text" class="form-control input-date">
       </div>
       <span class="input-group-btn">
-        <button type="button" style="padding: 3px 5px;" class="btn btn-apply-aryaka" @click="toogleDataPicker">
+        <button type="button" style="padding: 3px 5px;" class="btn btn-apply" @click="toogleDataPicker">
           <i class="fa fa-calendar"></i>
         </button>
       </span>
