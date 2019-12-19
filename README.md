@@ -52,3 +52,48 @@ Basic integration of the Bootstrap v4 component for Vue.js
     }
   }
 </script>
+```
+
+#### AppBootstrapSelect
+``` vue
+<template>
+    <app-bootstrap-select
+            :value="selectVal"
+            :items="dropBoxList"
+            :pickerOptions="selectOptions"
+            :hideNoneSelectedText="true"
+            @input="onSelectChange"/>
+</template>
+
+
+<script>
+  import AppBootstrapSelect from 'vue-bootstrap'
+
+  export default {
+    name: 'page',
+    components: {
+      AppBootstrapSelect
+    },
+    data () {
+      return {
+        selectVal: null,
+        dropBoxList: [{label: 'Hello', value: 1}, {label: 'Bye', value: 0}],
+        selectOptions: {
+          // Pass all bootstrap select options
+          style: 'selector-btn',
+          liveSearch: true,
+          showSubtext: true,
+          size: 20,
+          liveSearchPlaceholder: 'Search',
+          noneSelectedText: 'None'
+        }
+      }
+    },
+    methods: {
+      onSelectChange (val, obj) {
+        console.log('Select', val, obj)
+      }
+    }
+  }
+</script>
+```
