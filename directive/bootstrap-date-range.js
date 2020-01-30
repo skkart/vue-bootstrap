@@ -34,5 +34,6 @@ export default {
   unbind (el, binding) {
     const datePicker = $(el).data('daterangepicker')
     datePicker.remove()
+    datePicker = null
   }
 }
