@@ -10,6 +10,7 @@ Basic integration of the Bootstrap v4 component for Vue.js
       data-placement="top"> Tooltip </span>
 
 ```
+
 #### Popover
 ```vue
 <span v-popover="#popover"
@@ -17,6 +18,71 @@ Basic integration of the Bootstrap v4 component for Vue.js
    data-trigger="hover focus" data-placement="top" > Popover </span>
 
 ```
+#### DateRange pickerOptions
+```Vue
+<template>
+    <div class="input-group input-group-sm">
+        <input autocomplete="off" v-bootstrap-date-range="{onDateSubmit: onDateSubmit, pickerOptions: this.pickerOptions}" type="text" name="date-range" class="form-control" />
+    </div>
+</template>
+
+<script>
+  import directivesDateRange from 'vue-bootstrap'
+  import moment from 'moment-timezone'
+
+  export default {
+    name: 'page',
+    // this section is important to import directive
+    directives: {
+      'bootstrap-date-range': directivesDateRange
+    },
+    data () {
+      return {
+        showAppBox: false,
+        pickerOptions () {
+          let ranges = this.latestRange()
+
+          const minDate = moment().subtract(2, 'years')
+          const startDate = moment().subtract(3, 'months')
+          const endDate = moment().subtract(1, 'months')
+          const format = 'MM/DD/YYYY HH:mm'
+
+          return {
+            // Here goes all the options for bootstrap-date-range
+            startDate,
+            endDate,
+            ranges,
+            minDate,
+            maxDate: moment(),
+            locale: {
+              format,
+              applyLabel: 'OK'
+            },
+          }
+        }
+      }
+    },
+    methods: {
+      latestRange () {
+        let rangeOpts = {
+          'Last 1 Hour': [moment().subtract(1, 'hour'), moment()],
+          'Last 4 Hours': [moment().subtract(4, 'hours'), moment()],
+          'Last 24 Hours': [moment().subtract(24, 'hours'), moment()],
+          'Last 7 Days': [moment().subtract(7, 'days'), moment()],
+          'Last Month': [moment().subtract(1, 'months').startOf('Month'), moment().subtract(1, 'months').endOf('Month')],
+          'Current Month': [moment().startOf('Month'), moment()]
+        }
+        return rangeOpts
+      },
+      onDateSubmit (sD, eD, opStr) {
+        console.log(sD, eD, opStr)
+      }
+    }
+  }
+</script>
+
+```
+
 
 ### Components
 #### AppBootstrapDatepicker
